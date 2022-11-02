@@ -1,0 +1,13 @@
+{{> head title="Home"}}
+{{> header }}
+{{> navbar }}
+<script>
+    /*if (`{{ token }}`) {
+        localStorage.setItem("token", `{{ token }}`);
+    }
+    console.log(`{{ token }}`);*/
+    window.history.pushState("", "", '/');
+</script>
+<h1>Pagina Home</h1>
+
+{{> footer }}

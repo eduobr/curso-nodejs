@@ -1,0 +1,94 @@
+extends layout.pug
+block content
+  //-h1 Hola mundo desde Jade
+  // comentario visible desde el html
+  //-Acá mandamos el title de la función pug del index.js
+  article#jade.container
+    h1
+      a(href=link, target="_blank")= title 
+    p hecho por #{link}
+
+  article.container
+    h2 Estructura Básica deJade
+    p Este archivo de HTML es generado con el motor de plantillas Jade
+    p
+      |Para concatenar Contenido 
+      |en varias líneas 
+      |se usa el pipe '|'
+
+    //-LLama al archivo logo.pug
+    include logo 
+    //Interpolación
+    p.
+      Si te gusta la forma en que Pug genera código HTML
+      puedes leer la documentación del #[a(href="https://pugjs.org/language/interpolation.html", target="_blank") API Pug],
+      la referencia del
+      #[a(href="https://pugjs.org/api/reference.html", target="_blank" ) Lenguaje]
+      y de la 
+      <a href="https://pugjs.org/api/getting-started.html" target="_blank">Instalación</a>
+    
+    br
+
+    button#presioname.boton Presioname
+    script.
+      //alert('Javascript Ejecutado desde Pug')
+      document.querySelector("#presioname").onclick= ()=>{
+          alert('has presionado el botón desde pug con Javascript')
+      }
+
+    -var nombre = 'Pug'
+    p Hola #{nombre}
+
+    -var fecha = new Date()
+    -var hora = fecha.getHours()
+
+    if(hora < 12)
+      p La hora #{hora} es Antes del Meridiano (AM)
+    else
+      p La hora #{hora} es Posterior del Meridiano (PM)
+
+    -var estaciones = ['Primavera', 'Verano', 'Otoño', 'Invierno']
+
+    h2 Estaciones del Año
+
+    ol
+      each estacion in estaciones
+        li #{estacion}
+
+  //-Los mixin son funciones en pug
+  mixin mesesEstacionesMexico(estacion,meses)
+    div.item
+      h3 #{estacion}
+      ul 
+        each mes in meses
+          li #{mes}
+
+  article.container
+    h2 Estaciones del Año en México
+    +mesesEstacionesMexico(estaciones[0],['Abril','Mayo','Junio'])
+    +mesesEstacionesMexico(estaciones[1],['Julio','Agosto','Septiembre'])
+    +mesesEstacionesMexico(estaciones[2],['Octubre','Noviembre','Diciembre'])
+    +mesesEstacionesMexico(estaciones[3],['Enero','Febrero','Marzo'])
+  //-h2 Estaciones del Año
+  //- ul
+    li Primavera
+      ol
+        li Abril
+        li Mayo
+        li Junio
+    li Verano
+      ol
+        li Julio
+        li Agosto
+        li Septiembre
+    li Otoño
+      ol
+        li Octubre
+        li Noviembre
+        li Diciembre
+    li Invierno
+      ol
+        li Enero
+        li Febrero
+        li Marzo
+                    

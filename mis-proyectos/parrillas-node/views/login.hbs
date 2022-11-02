@@ -1,0 +1,18 @@
+{{> head title="Login"}}
+{{> header }}
+{{> navbar }}
+<script>
+    window.history.pushState("", "", '/login');
+</script>
+
+<h2>Login</h2>
+<form method="GET" action="/login-user">
+    <label for="txtUser">Usuario</label>
+    <input type="text" id="txtUser" name="usuario" value="">
+    <label for="txtPass">Password</label>
+    <input type="password" id="txtPass" name="password" value="">
+    <button>Logearse</button>
+</form>
+
+
+{{> footer }}

@@ -1,0 +1,22 @@
+<script>
+    if (`{{ token }}`) {
+        localStorage.setItem("token", `{{ token }}`);
+    }
+    if(localStorage.getItem('token')){
+        token = localStorage.getItem('token');
+    }
+    //console.log(token);
+</script>
+<nav id="navbar">
+    <a href="/">Inicio</a>
+    <!--<a onclick="location.href=`productos?token=${token}`">Productos</a>-->
+    <a href="/productos">Productos</a>
+    <a href="#">Nosotros</a>
+    <a href="#">Contactanos</a>
+    <a href="#" onclick="location.href ='/producto/ingresar-producto?token=' + token">Ingresar Producto</a>
+    <a href="/usuario/registrarse">Registrarse</a>
+    <a href="/login">Logearse</a>
+    <a href="/login">Cerrar Sesión</a>
+</nav>
+<section id="contenido">
+

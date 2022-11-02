@@ -1,0 +1,792 @@
+*flag son el -- o -
+*Con ctrl+c podemos cancelar una instalación de la consola
+*En sublime text en view identation podemos cambiar el espacio en la tabulación
+*para actualizar los paquetes de nuestro proyecto debemos escribir:
+  .npm update
+
+*si tenemos problemas para hacer login a la terminal de firebase podemos utilizar el comando:
+  .firebase login --interactive
+
+-Para ver las confiuraciones que le hemos añadido al git nos vamos al git bash y escribimos la siguiente linea:
+ git config --list 
+
+-Si escribimos en la terminal node nos aparecera el signo > y aquí podemos escribir comandos javascript
+
+-En javascript cualquier metodo regresa algo
+
+-Cuando ejecutamos un programa ejemplo node app.js lo primero que hace node es ejecutar el main()
+
+-en las promesas el resolve solo puede mandar un dato, si vamos a mandar mas de un dato debemos 
+mandar un objeto
+
+-node por defecto instala algunos objetos como el module,process
+
+-en el process podemos ver la ruta de node y de nuestro archivo, si nosotro escribimos
+ node archivo --parametro=1 esto se guardara en la tercera posición del arreglo del 
+ process.argv
+
+-Front-end es navegador y Back-end es servidor
+
+-HTTP es la clase que permite levantar un servidor web 
+
+-npm es el gestor de paquetes de javascript
+
+-formas para instalar un paquete:
+ .Unica: npm install nombre-paquete (no se recomienda)
+ .Global:npm install -g nombre-paquete 
+ .Como dependencia del proyecto: npm install nombre-paquete --save
+ .Como dependencia de desarrollo: npm install nombre-paquete --save-dev
+
+-para instalar una versión de paquete especifica:
+ .npm install nombre-paquete@versión --save
+
+-En la unica se instala en el proyecto
+-En la global se instala en la carpeta de node del pc
+-Una dependencia de proyecto es si se requiere para funcionar el proyecto y se tiene que
+ guardar en el archivo de configuración(package.json)
+-Una dependencia de desarrollo es si sin ellas el programa no deja de funcionar,
+ solo son en la maquina que está desarrollando la aplicación y no van a ser enviadas
+ al servidor de producción
+
+-las dependencias del proyecto son paquetes externos al core, todas las librerias y
+ paquetes que nuestra aplicación necesita para poder ser ejecutada
+
+-para desinstalar un paquete se hace con: npm uninstall nombrePaquete
+-para desinstalar un paquete global se hace con: npm uninstall nombrePaquete -g
+
+-con: npm -help podemos ver los comandos de npm
+
+-para ver la documentación de cualquier paquete en el navegador:
+  .npm docs <nombre-paquete>
+
+-el package.json es el archivo de configuración de node
+
+-si instalamos node y escribimos node en la consola tenemos acceso a la linea de comandos de node
+
+-si escribimos global es el objeto global de node
+
+Paquetes Globales
+-los paquetes supervisor(supervisor rutaArchivo) y nodemon nos permiten supervisar un archivo y cada vez que este tenga un cambio
+ va a reiniciar el archivo
+-si queremos que nodemon vuelva a iniciar el servicio podemos escribir rs en la consola
+
+-si queremos supervisar cambios que se realicen en archivos con diferentes extensiones
+ tenemos que escribir en el cmd:
+ .nodemon server -e js,hbs,html,css
+
+Requires
+-Tenemos tres tipos de require:
+ .const fs = require('fs')      -paquetes nativos de node
+ .const fs = require('express') -paquetes de otras personas que instalamos en nuestro proyecto
+ .const fs = require('./fs')    -paquetes de nuestro proyecto
+
+-el paquete forever y pm2 nos permite correr script de manera continua
+-Forever:
+ .forever start rutaArchivo
+ .forever list - para ver los procesos
+ .forever stop idProceso - para detener el proceso
+ .forever restartall - para reiniciar todos los0 procesos y ver los archivos actualizados
+
+-pm2:
+ .pm2 start rutaArchivo 
+ .pm2 stop        || (app_name||id||all||json_conf)
+ .pm2 list
+ .pm2 delete pId  || (app_name||id||all||json_conf)
+ .pm2 restart Id  || (app_name||id||all||json_conf)
+ .p2 describe rutaArchivo || informacíon del archivo
+ 
+-con el comando npm init creamos el archivo package.json
+ .el entry point es el archivo de node que se ejecuta y despliega nuestra aplicación
+
+
+-instalamos el paquete formidable: npm install --save formidable este modulo es para
+ trabajar con formularios
+-y el paquete fs-extra npm i fs-extra --save este modulo contiene extras para
+ trabajar con archivos
+
+-con npm install hacemos que lea el package,json del proyecto y si tiene dependencias
+ las instala
+
+-en la parte script del package.json si agregamos "start":"supervisor uploader.js"
+ y luego en la consola escribimos npm start ejecutara esa linea, por lo que al hacer algun
+ cambio el archivo se vera reflejado en el navegador
+
+-Dependencias de desarrollo:
+ .paquetes externos al core
+ .desarrollados por la comunidad
+ .facilitan y optimizan tareas comunes de desarrollo y publicación
+ .al instalarlos quedan registrados en el packege.json
+ .npm install nombre-paquete --save-dev
+ .no se mandan al servidor de producción
+
+-Algunos ejemplos de depencias de desarrollo son:
+ .grunt
+ .gulp
+ .webpack
+ .bower
+ ,stylus
+ .less
+ .browserify
+ ,jshint
+ .babel
+
+-Al instalar una dependencia si nos aparece un signo + en la consola significa que fue instalada
+ correctamente
+
+-el package-lock lo que hace es llevar un registro de todo lo que hizo para instalar
+ una dependencia
+
+-la carpeta node-modules no se sube al servidor ya que con solo ejecutar el npm install
+ se instalan nuestras dependencias además las librerias pueden variar dependiendo del sistema
+ operativo
+
+-Las promesas se resuelven o se rechazan y se dividen en 2:
+ .interfaz que construye flujos(.then y .fail)
+ .interfaz que controla flujos(.reject y .resolve)
+
+HTTP
+-http es un paquete que nos permite crear rapidamente un webserver
+
+Frameworks 
+-Express
+ .Sirve para el manejo de las rutas(que vistas se tienen que mostrar)
+ .Los middleware son el codigo que se ejecuta entre la petición que
+  hace el usuario y la respuesta que da la aplicación, estos se ejecutan siempre
+ .los app.use() son middleware
+ .al ser un framework limpio permite añadir cualquier libreria externa
+
+-Sailsjs:
+ .Esta basado en ruby y Express
+
+-hapijs:
+ .Esta basado en express fue creado por walmart :v
+
+-Locomotive
+-KOA
+-Krakenjs aumenta la cantidad de plugins,complejidad y soporte para Express
+-Express.IO aplicaciónes en tiempo real
+-SocketStream para lo mismo que lo anterior
+-Geddy
+-Total
+-Partial
+
+-express también se tiene que instalar como dependencia de desarrollo
+ npm i --save express
+
+-http.status 301 es una redirección permanente
+
+Middleware
+-es una instrucción que se va a ejecutar siempre, no importa la url que la
+ persona pida
+
+-es un función con acceso al objeto de la petición(req) y al objeto de la respuesta(res)
+ y al siguiente middleware de la aplicación(req-res)
+ .puede ejecutar cualquier codigo
+ .hacer cambios en el objeto de petición y respuesta
+ .finalizar el ciclo de peticiones y respuestas
+ .mandar a llamar al siguiente middleware en el stack
+
+-un middleware es un proceso que se va a ejecutar en el proceso de la petición del
+ usuario y del servidor
+
+-Son módulos "plug and play" que se pueden apilar arbitrariamente en cualquier
+ orden y proveen cierta funcionalidad, estos se dividen en 2:
+ .Filtros:procesan el tráfico entrante/saliente(req,res) pero no responden a
+  		  ninguna petición.Por ejemplo bodyParser
+ .Prevedores: ofrecen respuestas automaticás a algún tipo de petición.
+              Por ejemplo static.
+
+-reciben 3 parametros: req,res,next
+-al terminar su tarea, tiene que invocar next()
+-sin parámetro:se invoca al siguiente middleware del stack
+-con parámetro:se cambia la ruta a lo que se pase como parámetro
+-Dos maneras de activar middlewares:
+ .Globalmente(app.use), activos para tooda la app
+ .Locales para ciertas rutas
+
+-Express se apoya de paquetes adicionales, para mantener su core
+ simple y minimalista 
+
+-para usar las sessiones de cookie debemos instalar cookie-parser y cookie-session
+ como dependencia de proyecto con:
+ .npm i --save cookie-parser cookie-session
+
+Metodos para trabajar con Express
+-app.set(propiedad, valor) //establece
+-app.get(propiedad)        //obtiene
+-app.use(middleware)       //utiliza
+
+-favicon(ruta) sirve el favicon de la aplicación(icono)
+ .debe ser el primero
+ .para evitar peticiones innecesarias
+
+-logger([opciones]) registro de actividad
+ .se suele poner debajo de favicon()
+
+-cookieParser() parsea las cookies de la petición
+ .crea el objeto req.cookies
+
+-bodyParser() parsea el cuerpo de las peticiones
+ .Decodifica:application/json
+             application/x-www-form-urlencoded
+             multipart/form-data
+ .Crea el objeto req.body con los parámetros
+ .Crea el objeto req.files con los ficheros que se han subido desde un formulatio
+
+-cookieSession([opciones]) inicializa y parsea los datos de sesión del usuario
+ .Crea el objeto req.session
+ .Utilizando cookies como almacenamiento
+ .Alunas opciones:secret:fuma de seguridad para la cookie
+                  maxAge:duración en ms
+                  path:ruta para la que es válida la cookie
+                  httpOnly:protección solo en protocolo http
+
+-express.static(directorio) sirve los ficheros estáticos dentro del directorio
+ .Se pone cerca del final
+ .Cachea los ficheros
+ .La variable global __dirname contiene el directorio donde reside el script
+ en ejecución
+
+-También hay un generador de proyectos express pero primero debemos
+ instalar el express generator:
+ desde la consola con: npm install express-generator -g 
+
+-luego para crear el proyecto lo hacemos con: express miAppExpress
+
+-despues de crear el proyecto tenemos que instalar los modulos del proyecto
+ y esto lo hacemos escribiendo en la consola dentro decarpeta del proyecto:
+ .npm install
+
+*para trabajar con el motor de plantilla pug en vez de jade lo hacemos
+ creando el proyecto con: express --view=pug nombre-app﻿
+
+-para trabajar con el motor de plantillas lo hacemos con res.render(view,[locals],callback)
+ .view: ruta del template
+ .locals: valores a interpolar
+ .callback: function(err,html){...}
+
+-los motores de plantillas son como preprocesadores pero de paginas html
+
+-los motores de plantilla de moda son jade, ejs, hbs(handlebars)
+
+-los helpers en el hbs son una función que se dispara cuando el template lo requiere,
+ si una variable no existe en el objeto que se manda, se busca en los helpers
+
+-los parciales sirven para reutilizar codio o componentes(footer,header) 
+  de otras plantillas.
+
+-al instalar los motores de plantilla los tenemos que instalar como dependencia
+ de proyecto
+
+-morgan es un middleware de log para las peticiones de http, este nos muestra
+ las peticiones hechas a la aplicación en nuestra consola
+
+-en jade los comentarios se hacen con //-, si queremos que algo aparesca en 
+ la plantilla html como comentarios html se hace con //
+
+-si a una variable en jade le asignamos un valor el signo = debe estar pegado
+ a la etiqueta que se la estamos asignando
+
+-para asignarle un atributo a un html lo podemos hacer con () ej:
+ a(href=""), y si a eso le quisieramos añadir una variable lo hariamos con  a(href=variable)
+
+-si a un parrafo le quemos añadir texto y una variable lo hacemos con p hecho por #{variable}
+
+-también podemos trabajar con layout y esto lo podemos hacer creando una pagina layout
+ poniendo en dónde vamos a agregar el contenido :
+ .block content 
+  y luego en la pagina que vamos a heredar de ese layout escribimos :
+ .extends layout.pug
+ .block content
+
+-si queremos añadir un parrafo con un id lo podemos hacer con:
+ .p#nombreId
+
+-si le queremos añadir una clase lo podemos hacer con:
+ .p.nombreClase
+
+-podemos concatenar lineas con el pipe('|')  ej:
+ .p
+  	|Para concatenar Contenido 
+   	|en varias líneas 
+   	|se usa el pipe '|'
+
+-con la interpolación se puede insertar tanto como variables de platilla, javascript, html
+
+-Para usar la interpolación lo podemos hacer con el . ej:
+    .p.
+      Si te gusta la forma en que Pug genera código HTML
+      puedes leer la documentación del #[a(href="https://pugjs.org/language/interpolation.html", target="_blank") API Pug],
+      la referencia del
+      #[a(href="https://pugjs.org/api/reference.html", target="_blank" ) Lenguaje]
+      y de la 
+      <a href="https://pugjs.org/api/getting-started.html" target="_blank">Instalación</a>
+    .script.
+      alert('Javascript Ejecutado desde Pug')
+
+
+-también se puede interpolar codigo html ej: #[a(href="direccion de la pagina", target="_blank" ) Texto del enlace]
+
+-para escapar variables en el html de pug lo podemo hacer con: -var variable = 'Pug'
+
+-mixin es una función en pug que sirve para realizar cosas repetitivas ej:
+.mixin funcion(parametro1)
+
+EJS
+-en ejs <% %> es codigo que se ejecuta y entre <%= %> es codigo que añade al HTML
+
+Ghost
+-es la plataforma de blog de Node.js
+-esta basado en express
+-para instalar ghost tenemos que descargar su .zip y dentro de su carpeta de proyecto ejecutar:
+ .npm install --production
+ .npm install -g knex-migrator
+ .knex-migrator init
+ .npm start
+
+Responsimple
+-es una libreria que trabaja con un grid system que permite maquetar 
+ con 3 tecnicas de maquetación: flexbox,float,display inline block
+
+-RowDataPacket es un objeto enviado desde la base de datos en notación JSON
+
+-------
+-si queremos ejecutar un script del tsconfig.json debemos ejecutar en la consola:
+	.npm run nombreScript
+
+-para copiar un directorio que tenga html:
+	.copyfiles --up 1 src/public/*.html dist (--up 1 es que obviee un directorio(src))
+
+-si queremos ejecutar dos comandos en un script debemos anadir en la parte de scripts del tsconfig.json:
+	."build": "tsc && npm run html"
+
+#Socket.io
+
+Heroku
+-es un servicio en la nube que nos permite desplehar aplicaciones
+-con heroku no sabemos que puerto le asignara a nuestra aplicación por
+ lo que el codigo del puerto lo debemos cambiar por:
+ const port = process.env.PORT || 3000;
+-luego debemos decirle el comando que ejecutara heroku para iniciar la
+ aplicación para esto vamos al package.json y en la parte de scripts
+ añadimos:
+ ."start":"node server.js"
+ (el start es una palabra reservada)
+ Y si lo queremos ejecutar en nuestra consola debemos escribir npm start
+
+*si nosotros agregamos un comando especial en la parte de scripts como por
+ ej:
+ ."nodemon":"nodemon server.js"
+ luego para ejecutarlo en la consola debemos escribir npm run nodemon
+
+-para subirlo a heroku es un proceso parecido al de git:
+ .debemos agregar los modulos de node al .gitignore
+ .git init
+ .git add .
+ .git commit -m "Texto del Commit"
+ .heroku login
+ .heroku git:remote -a edu-webpage
+ .git push heroku master
+ .heroku open //para abrir nuestra pagina web
+-una vez subido a heroku si nosotros queremos usar nuestro proyecto como
+ base para otro lo podemos hacer con
+ .heroku git:clone -a edu-webpage
+
+
+-body parser es un paquete de node que nos permite trabajar con peticiones post
+
+-para conectarnos a una base de datos mongo debemos instalar el paquete mongoose
+
+-con el paquete npm mongoose unique validator podemos personalizar los mensajes
+ de error
+
+-para encriptar contraseñas debemos instalar el paquete bcrypt, este paquete solo funciona
+  con las versiones estables de node
+ .npm install bcrypt
+
+
+-------------------------------------------------------------------------------------
+-Yargs sirve para que cuando enviemos parametros por consola nos devuelva una clave:valor
+ y no un arreglo por cada cosa que enviemos
+
+
+Github
+#Inicial
+-para ver nuestra configuración global
+	.git config --global --list
+
+-para cambiar nuestro nombre  de la configuración:
+	.git config --global user.name "nombre"
+	
+-para cambiar nuestro email:
+	.git config --global user.email "email"
+
+-En github la carpeta donde está nuestro proyecto se conoce como repositorio
+-primero tenemos que inicializar nuestro repositorio con:
+	.git init
+
+-con git status podemos ver a los archivos que le estamos haciendo seguimiento dependiendo
+ del color:
+ 	.rojo:sin seguimiento
+ 	.verde:con seguimiento(stage, previo a realizar un commit)
+
+-Si ya tenemos una carpeta creada y no clonamos nuestro repositorio de github entonces debemos
+ ejecutar:
+	.git remote add origin ruta github de nuestro repositorio
+
+-para ver nuestra configuración local de nuestro proyecto debemos situarnos en la carpeta
+ de nuestro proyecto y ejecutar:
+	.git config --local --list
+
+-para editar nuestra configuración en local:
+	.git config --local --edit
+
+#Gestion de Archivos
+-si queremos ver las diferencias entre los archivos que se encuentran en el repositorio remoto
+ y el local:
+ 	.git diff
+-si queremos ver solo las diferencias de un archivo concreto:
+	.git diff nombreArchivo
+-para salir del editor de texto de git diff debemos presionar: q
+-si agregamos un archivo con git add pero luego no queremos subir ese archivo entonces debemos
+ ejecutar:
+ 	.git reset HEAD nombreArchivo
+-para borrar un archivo del repositorio remoto:
+	.git rm nombreArchivo
+-si movemos un archivo luego también tenemos que borrarlo con:
+	.git rm nombreArchivo
+-snapshot o commit es tomar una fotografia del estado actual de mi proyecto o repositorio
+-si queremos deshacer el commit debemos:
+	.git reset --soft HEAD~1 (--soft es para decirle que queremos deshacer el commit pero no borrar los archivos y
+								HEAD~1 es para decirle que queremos deshacer el commit anterior)
+-para agregar los archivos que se subirán con el commit debemos ejecutar:
+	.git add nombreArchivo 
+-para hacer seguimiento a todos los archivos exceptuando a los del gitignore
+	.git add . 
+-si queremos deshacer todos los archivos que agregamos:
+	.git restore --staged .
+#Commits
+-para subir los archivos:
+	.git commit -m "Descripción" 
+-también podemos ingresar nuestro commit en el editor vim de git bash con:
+	.git commit
+-si queremos agregar instantaneamente todos los archivos que fueron modificados y hacer un commit:
+	.git commit -am "Nombre commit"
+-para salir del editor vim debemos:
+	.:wq
+
+-para ver la lista de commmits realizados:
+	.git log
+
+-si creemos que nos hemos equivocado en el ultimo commit podemos editar el ultimo commit realizado con:
+	.git commit --amend	
+-también podemos ver las diferencias entre los commits con
+	.diff idDelCommit1 idDelCommit2
+-si queremos ver los commit en la terminal como se ven en la web:
+	.git log --graph --decorate --oneline --all(oneline lo muestra en una linea,
+												all lo muestra por ramas)
+
+#Gestión de Repositorios
+-si queremos ver la lista de repositorios remotos:
+	.git remote
+-origin es nuestro repositorio remoto
+-si es que tuvieramos mas de un repositorio remoto conectado a nuestro repositorio local
+ debemos ingresar:
+	.git push -u origin master 
+-si queremos ver la url a la que esta conectada nuestro repositorio remoto:
+	.git remote -v
+-Si queremos subir el archivo a la rama maestra:
+	.git push -u origin master 
+-si despues vamos a subir mas archivos debemos hacer un 
+ 	.git add .
+ 	.git push
+-si realizamos un sync en git bash no solo se descargaran los archivos de nuestro repositorio
+ remoto sino que también se subiran los commit realizados
+-para descargar los archivos de nuestra rama remota:
+	.git pull origin master
+-si es que se realiza un commit desde otro ordenador o desde otra rama a nuestro repositorio
+ y nosotros no hicimos un pull para obtener esos cambios y ademas queremos subir un commit
+ nos dará un error por lo que siempre debemos trabajar con los ultimos cambios realizados
+ en el repositorio
+
+ #Ramas
+-para saber las ramas que tiene nuestro proyecto:
+	.git branch
+-si queremos crear una rama:
+	.git branch nombre-rama
+-si queremos cambiar la rama en la que nos encontramos:
+	.git checkout nombre-rama
+-si queremos cambiar y crear una rama:
+  .git checkout -b nombre-rama  
+-también podemos ver la rama en la que nos encontramos con:
+	.git status
+-si queremos saber en que rama se encuentran cada uno de los commit:	
+	.git log --decorate
+-para borrar una rama:
+	.git branch -d nombreRama
+-si una rama tiene commit que no han sido integrados a la rama master no nos dejará
+ borrar la rama
+-si queremos borrar una rama sus commit no han sido integrados debemos:
+	.git branch -D nombreRama
+-Para borrar una rama en el repositorio remoto que ya no se necesita mas, se ejecuta el siguiente comando:
+	.git push origin --delete nombre_de_la_rama
+-para subir una rama:
+	.git push origin nombreRama
+-si queremos además de crear una rama queremos ir directamente a ella:
+	.git checkout -b nombre-rama
+-para fusionar ramas nos tenemos que posicionar en la rama a la que le queremos agregar
+ las cosas de la otra rama y ejecutamos:
+ 	.git merge nombreOtraRama
+-para traer una rama remota:
+	.git checkout --track origin/newsletter
+-git realmente no borra todo si no que solo lo oculta por lo que si queremos que lo que borramos
+ se elimine completamente ejecutamos el comando
+ 	.git gc (este comando es un recolector de basura, también nos sirve si el repositorio esta muy lento)
+-si tenemos el error de fatal: refusing to merge unrelated histories, esto es porque estamos tratando
+ de fusionar proyectos que su origen no es el mismo, para solucionar este problema:
+  .git pull origin master --allow-unrelated-histories
+
+
+-para crear un release lo primero que tenemos que hacer es:
+ .git tag -a v1.0.0 -m "Primera versión"
+ .git tag //para ver nuestros tag de versionado
+ .git push --tags
+
+#GitHub Actions
+-documentación de GitHub Actions para firebase;
+  .https://github.com/marketplace/actions/github-action-for-firebase
+
+-para desplegar un proyecto a a través de Gitub Actions debemos ir al settings > secrets y
+ ahí añadimos nuestro Firebase Token
+
+Robo3T
+-las Collections son las tablas de cualquier base de datos normal
+
+-------------------------------------------------------------------------------------
+Microservicios
+-para usar los microservicios debemos instalar el paquete de npm llamado hydra
+
+-antes de instalar hydra debemos instalar chocolatey que es un gestor de paquetes
+ para windows y luego debemos instalar redis que es una BD
+
+-despues de instalar chocolatey podemos descargar redis desde chocolatey con:
+  .choco install redis-64 -g
+
+-luego para ejecutar el servidor de redis:
+  .redis-server
+
+-ahora podemos instalar hydra con:
+ .npm install -g yo generator-fwsp-hydra hydra-cli
+
+-despues de la instalación nos muestra el doctor sanity que verifica que la
+ instalación de haya realizado correctamente
+
+-luego debemos configurar la conexión a redis con:
+  .hydra-cli config local
+
+-para crear un servicio lo hacemos con:
+  .yo fwsp-hydra
+
+-luego vamos a la carpeta y ejecutamos:
+  .npm install
+
+-luego ejecutamos:
+  .npm start
+-------------------------------------------------------------------------------------
+##Instalar Bootstrap
+
+npm install --save jquery@3.2.1
+ 
+npm install --save popper.js@1.12.6
+ 
+npm install --save tether@1.3.3
+ 
+npm install --save bootstrap@4.0.0-alpha.6
+
+"styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+          ],
+"scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/popper.js/dist/umd/popper.min.js",
+              "node_modules/tether/dist/js/tether.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
+----------------------------------------------------------------------
+#MongoDB
+*Cluster
+
+-La escalabilidad horizontal es que tenemos un servidor y
+ dependiendo de la cantidad de usuarios que la usen la apliación
+ lo vamos agregando mas servidores
+ 
+-La escalabilidad vertical es en la cual se compra un servidor
+ con muchos recursos para que aguante una gran cantidad de usuarios
+
+-mongodb no tiene schema y tiene un modelo bastante intuitivo
+ que es JSON
+
+-el propósito de mongodb es escalarlo horizontalmente
+
+-para ver la versión de mongo:
+  .mongod --version
+
+-para ver la versión del Shell de mongo:
+  .mongo --version
+
+-para iniciar el servidor:
+  .mongod
+
+-para ejecutar comandos en el servidor:
+  .mongo
+
+-el comando anterior ejecutará el Shell de mongo
+
+-para ver nuestras bases de datos ejecutamos en el Shell:
+  .show dbs //esto nos mostrará el nombre y el peso de la BD
+
+-para crear una BD y ubicarse en la BD creada:
+  .use nombre-BD  //la BD no se creará hasta que se hayan
+                    datos
+
+-para ver en que base de datos estamos ubicados:
+  .db
+
+-para crear un usuario:
+  .db.createUser({
+    user:"nombre usuario",
+    pwd:"contraseña,
+    roles:["readWrite","dbAdmin"]
+  })
+
+-para insertar datos en una tabla:
+  .db.nombreTabla.insert({ //db es la BD en la que nos encontramos
+    firstName:'Isaac',
+    lastName:'Asimov'
+  })
+
+-luego de que insertamos un dato ya podremos ver nuestra BD con:
+  .show dbs
+
+-para ver los elementos que se encuentran en una tabla:
+  .db.nombreTabla.find()
+
+-mongodb cuando guarda un dato le agrega un identificador único
+
+-para insertar múltiples datos:
+  .db.nombreTabla.insert([
+...    {
+...      firstName:'Francisco',
+...      lastName:'Gutierrez'
+...    },{
+...    },{
+...      firstName:'Selena',
+...      lastName:'Soraya'
+...    },{
+...      firstName:'Joe',
+...      lastName:'McMillan'
+...    },
+...  ])
+
+-también podemos filtrar los datos buscados a tráves de una 
+ consulta con propiedades:
+  .db.nombreTabla.find({fistName:'nombre'})
+
+-si queremos acatualizar un dato:
+  .db.nombreTabla.update({
+    {firstName:'nombre'}, //campo a buscar
+    {firstName:'nuevoNombre',lastName:'nuevoApellido'}
+  })
+
+-si queremos podemos agregar mas campos cuando estamos actualizando
+
+-mongodb al no tener schema no hay problema si a un dato de una
+ tabla le agregamos mas campos
+
+-para ver los datos de una tabla formateados:
+  .db.nombreTabla.find().pretty()
+
+-si queremos buscar un dato por id:
+  .db.nombreTabla.find({_id: ObjectId("id del dato")})
+
+-sí al actualizar no queremos modificar toda la estructura
+ del objeto:
+  .db.nombreTabla.update({_id:ObjectId("id")},{ $set:{age:25} })
+
+-si queremos eliminar un campo
+  .db.nombreTabla.update(
+    {_id:ObjectId("id")},
+    { $unset:{age:1} } //1 es como un true
+  )
+
+-sí al actualizar queremos incrementar un dato numerico como
+ edades, puntos, años, etc. podemos utilizar el metodo inc:
+  .db.nombreTabla.update({_id:ObjectId("id")},{ $inc:{age:5} })
+
+-sí queremos decrementar un dato:
+  .db.nombreTabla.update({_id:ObjectId("id")},{ $inc:{age:-5} })
+
+-sí queremos actualizar uun un dato y que si este no esta
+ se debe insertar en la BD:
+  .db.nombreTabla.update(
+    {firstName("nombre a buscar")},
+    { firstName:'nuevoNombre', lastName:'nuevoApellido'},
+    { upsert:true }
+  )
+
+-si queremos renombrar el campo de un dato:
+  .db.clientes.update(
+    {firstName("nombre a buscar")},
+    {
+      $rename: {"age":"edad"} //modificamos el campo age a edad
+    }
+  )
+
+-para eliminar todos los datos que coincidan con una busqueda:
+  .db.nombreTabla.remove({fistName:"dato a eliminar"})
+
+-para eliminar solo la primera coincidencia:
+  .db.nombreTabla.remove(
+    {fistName:"dato a eliminar"},
+    {justOne:true}
+  )
+
+-para buscar por dos parametros 
+  .db.clientes.find({$or: [{firstName:'Joe',{firstName:'Isaac'}]})
+
+-para los mayores a 30 años
+  .db.clientes.find({age:{$gt:30}}) //gt es mayor que
+
+-para los menores a 30 años
+  .db.clientes.find({age:{$lt:30}}) //lt es menor que
+
+-para buscar a los mayores de 18 y menores que 30
+  .db.clientes.find({age:{$gt:18,, $lt:30}}) //lt es menor que
+
+-para buscar por una subpropiedad:
+ {direccion:{ciudad:"Santiago"}} //tenemos una dirección
+                                   con el objeto ciudad
+ .db.nombreTabla.find({"direccion.ciudad":"santiago"})
+
+-para buscar con una expresión regular:
+ .db.nombreTabla.find({"name":{$regex:"el nombre"}})
+
+-para ordenar los datos mostrados:
+  .db.nombreTabla.find().sort({lastName:1}) //de menor a mayor
+  .db.nombreTabla.find().sort({lastName:-1}) //de mayor a menor
+
+-para contar los datos que existen:
+  .db.nombreTabla.count()
+
+-para contar cuantas personas son mayores de 18:
+  .db.nombreTabla.find({age: {$gt:18}}).count()
+
+-para mostrar solo una cantidad limitada de datos:
+  .db.clientes.find().limit(4).sort({name:-1}) //además los ordena
+                                                 por nombre de mayor
+                                                 a menor
+
+-También se pueden mostrar funciones de javascript:
+  .db.clientes.find().forEach((doc){print(doc.name)})
+
+

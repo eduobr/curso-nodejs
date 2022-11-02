@@ -1,0 +1,26 @@
+{{> head title="Registro"}}
+{{> header }}
+{{> navbar }}
+<script>
+    window.history.pushState("", "", '/usuario/registrarse');
+</script>
+
+<h1>Registrarse</h1>
+<form id="registro" action="/usuario/registrarse" method="POST">
+    <label for="txtUsuario">Usuario:</label>
+    <div class="wrap-input100">
+        <input class="input100" type="text" value="" name="txtUsuario" placeholder="Ingrese Usuario">
+        <span class="focus-input100"></span>
+    </div>
+    <label for="txtPass">Contraseña</label>
+    <div class="txtForm">
+        <input type="password" name="txtPassword">
+    </div>
+    <label for="txtEmail">Email</label>
+    <div class="txtForm">
+        <input type="email" value="" name="txtEmail">
+    </div>
+    <button class="boton" type="submit">Registrarse</button>
+</form>
+
+{{> footer }}

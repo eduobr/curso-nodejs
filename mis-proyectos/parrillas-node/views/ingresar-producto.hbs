@@ -1,0 +1,22 @@
+{{> head title="ingresar producto"}}
+{{> header }}
+{{> navbar}}
+    <form action="/producto/ingresar-producto" method="POST">
+        <label for="cboTipoProducto">Tipo Producto</label>
+        <select name="cboTipoProducto" id="cboTipoProducto">
+            <option value="Parrilla">Parrilla</option>
+            <option value="Campana">Campana</option>
+            <option value="Espada">Espada</option>
+        </select>
+        <label for="txtNombre">Nombre</label>
+        <input id="txtNombre" name="txtNombre" type="text">
+        <label for="txtDescripcion">Descripcion</label>
+        <textarea id="txtDescripcion" name="txtDescripcion" id="" cols="30" rows="10"></textarea>
+        <label for="txtPrecio">Precio</label>
+        <input id="txtPrecio" name="txtPrecio" type="text">
+        <label for="nmbCantidad">Cantidad</label>
+        <input id="nmbStock" name="nmbStock" type="number">
+        <input id="flImagen" name="flImagen" type="file">
+        <button type="submit">Ingresar Producto</button>
+    </form>
+{{> footer }}

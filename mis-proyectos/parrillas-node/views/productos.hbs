@@ -1,0 +1,35 @@
+{{> head title="Productos"}}
+{{> header }}
+{{> navbar }}
+<script>
+
+</script>
+<h1>Productos</h1>
+<section id="lista-productos">
+    <h2>Parrillas</h2>
+    {{#each productos}}
+        <article class="producto">
+            <div class="producto-imagen">
+                <img src="img/parrillas/parrilla-quincho-con-elevador.jpg" alt="">
+                <div class="producto-descuento">
+                    0% DCTO
+                </div>
+            </div>
+            <div class="producto-titulo">
+                <h3>{{ this.nombre }}</h3>
+            </div>
+            <div class="producto-precio">
+                <p>${{this.precio}}</p>
+            </div>
+            <div class="producto-boton">
+                <button>
+                    Ver Producto
+                </button>
+            </div>
+        </article>
+    {{/each}}
+</section>
+<h2>Campanas</h2>
+
+<script src="/js/producto.js"></script>
+{{> footer }}
